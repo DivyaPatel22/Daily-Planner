@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Smart Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h1>Smart Planner</h1>
+    <ul>
+      <li><a href="index.html" class="active">Dashboard</a></li>
+      <li><a href="task.html">Tasks</a></li>
+      <li><a href="Calender.html">Calendar</a></li>
+      <li><a href="Setting.html">Settings</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button id="theme-toggle">🌗</button>
+  </nav>
+
+  <main class="page">
+    <section class="card">
+      <h2>👋 Welcome Back!</h2>
+      <p id="date">Today is ...</p>
+    </section>
+
+    <section class="card">
+      <h2>✨ Quote of the Day</h2>
+      <p id="quote">Loading...</p>
+    </section>
+
+    <section class="card">
+      <h2>📋 Quick Stats</h2>
+      <p>Visit <a href="tasks.html">Tasks</a> to manage your to-do list.</p>
+    </section>
+  </main>
+
+  <script src="Script.js"></script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+:root {
+  --bg: #f9fafe;
+  --fg: #222;
+  --card-bg: #ffffff;
+  --primary: #4CAF50;
+  --accent: #03A9F4;
+  --dark-bg: #1f1f1f;
+  --dark-card: #2b2b2b;
+  --dark-fg: #eee;
+}
+
+body {
+  background-attachment: fixed;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background 0.3s, color 0.3s;
+}
+
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-fg);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--card-bg);
+  padding: 15px 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+body.dark .navbar {
+  background: var(--dark-card);
+  border-color: #444;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.85); /* Slight transparency */
+  backdrop-filter: blur(3px); 
+  max-width: 680px;
+  margin: 20px auto;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  background: var(--card-bg);
+  transition: transform 0.3s ease;
+
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--fg);
+  font-weight: 500;
+  padding-bottom: 4px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.navbar a.active {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--fg);
+}
+
+body.dark #theme-toggle {
+  color: var(--dark-fg); 
+}
+
+
+/* ===== Task Page Styling ===== */
+
+.tasks-page h2 {
+  color: var(--primary);
+  margin-top: 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.task-header {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  animation: fadeInUp 0.4s ease;
+}
+
+.task-controls {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.task-controls input,
+.task-controls select {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+body.dark .task-controls input,
+body.dark .task-controls select {
+  background: #2e2e2e;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+.task-controls button {
+  padding: 12px 16px;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.task-controls button:hover {
+  background: #43a047;
+}
+
+/* Progress Bar */
+.task-stats {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  animation: fadeInUp 0.5s ease;
+}
+
+.progress-bar {
+  background: #ddd;
+  height: 14px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+/* Task List */
+.task-list {
+  padding: 0;
+  list-style: none;
+}
+
+.task-list li {
+  background: var(--card-bg);
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border-left: 5px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.task-list li:hover {
+  transform: translateX(4px);
+}
+
+/* Priority indicators */
+.task-list li.low { border-color: #4CAF50; }
+.task-list li.medium { border-color: #FFC107; }
+.task-list li.high { border-color: #F44336; }
+
+/* Completed tasks */
+.task-list li.done {
+  text-decoration: line-through;
+  color: #888;
+  opacity: 0.7;
+}
+
+/* Delete button (optional if added later) */
+.task-list li button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: crimson;
+  cursor: pointer;
+}
+
+/* Entry animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .task-controls {
+    flex-direction: column;
+  }
+
+  .task-controls input,
+  .task-controls select,
+  .task-controls button {
+    width: 100%;
+  }
+}
+
+
+
+/* ===== Calendar Page Styles ===== */
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.calendar-grid div {
+  background: #e3f2fd;
+  padding: 14px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.calendar-grid div:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.calendar-grid .today {
+  background: #ffc107;
+  color: #000;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px #fff8e1 inset;
+}
+
+
+
+/* ===== Settings Page ===== */
+
+.card h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+#reset-theme {
+  padding: 12px 20px;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#reset-theme:hover {
+  background-color: #0288d1;
+  transform: scale(1.05);
+}
+
+body.dark #reset-theme {
+  background-color: #007acc;
+}
+
+#reset-theme:active {
+  transform: scale(0.98);
+}
+
+
+/* ===== About Page Styling ===== */
+
+.card h2 {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--fg);
+  margin: 8px 0;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+body.dark .card p {
+  color: var(--dark-fg);
+}
+
+.card strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Add a subtle border to highlight the content */
+.card {
+  border: 2px dashed var(--accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background-image: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(3, 169, 244, 0.05) 100%);
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

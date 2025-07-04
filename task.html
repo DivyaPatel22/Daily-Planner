@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tasks | Smart Daily Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <h1>🧠 Smart Planner</h1>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="task.html" class="active">Tasks</a></li>
+      <li><a href="Calender.html">Calendar</a></li>
+      <li><a href="Setting.html">Settings</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button id="theme-toggle">🌗</button>
+  </nav>
+
+  <main class="page tasks-page">
+    <section class="task-header">
+      <h2>📋 Manage Your Tasks</h2>
+      <div class="task-controls">
+        <input type="text" id="task-input" placeholder="Add a new task..." />
+        <select id="priority-select">
+          <option value="low">🟢 Low</option>
+          <option value="medium">🟡 Medium</option>
+          <option value="high">🔴 High</option>
+        </select>
+        <button id="add-task">➕ Add</button>
+      </div>
+    </section>
+
+    <section class="task-stats">
+      <label>Completion: <span id="completion-percent">0%</span></label>
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+    </section>
+
+    <ul id="task-list" class="task-list"></ul>
+  </main>
+
+  <script src="Script.js"></script>
+</body>
+</html>
